@@ -145,6 +145,23 @@ The correction accounts for accumulated voltage-prediction error introduced by r
 
 ![Endpoint voltage difference bound against the 0.1 mV criterion](assets/sequential_bound.png)
 
+## External Numerical Validation — PyBaMM DFN
+
+The corrected 12-mode model was compared with PyBaMM 26.11 DFN across five matched current profiles (1,000 output points).
+
+| External comparison | Recorded result |
+|---|---:|
+| Corrected 12-mode model — maximum absolute discrepancy | **190.984 µV** |
+| Corrected 12-mode model — RMSE | **77.574 µV** |
+| 384-mode reference — maximum absolute discrepancy | 190.987 µV |
+| Stage 14 — RMSE across 15 profiles and 3,000 points | 327.912 µV |
+
+All five corrected-model profiles remain below 0.2 mV maximum discrepancy against DFN. The corrected compact model achieves nearly identical agreement with DFN as the 384-mode reference.
+
+These are external inter-model numerical comparisons, not physical-cell measurement errors. Full DFN mesh-convergence verification remains open.
+
+[Detailed external validation report](external_validation/pybamm/REPORT.md).
+
 ## What makes this technology commercially valuable
 
 **Internal-state intelligence.** A battery-management decision can incorporate admissible internal electrochemical states rather than relying exclusively on a single estimated state-of-charge value.
